@@ -16,7 +16,7 @@ class Max_subarray_sum{
     } */
 
     
-    // Better approach 2 pointer approach O(n^2)
+    /* // Better approach 2 pointer approach O(n^2)
     public static int maxSubaraySum(int[] arr,int len){
         int maxSum = Integer.MIN_VALUE;
         for(int i=0;i<len;i++){
@@ -27,7 +27,22 @@ class Max_subarray_sum{
             }
         }
         return maxSum;
-    } 
+    } */ 
+
+    // Best approach 1 pointer approach O(n)
+    public static int maxSubaraySum(int[] arr,int len){
+        int maxSum = Integer.MIN_VALUE;
+        int sum=0;
+        for(int i=0;i<len;i++){
+            sum+=arr[i];
+            maxSum=Math.max(maxSum, sum);
+
+            if(sum<0){
+                sum=0;
+            }
+        }
+        return maxSum;
+    }
     
     public static void main(String[] args) {
         
